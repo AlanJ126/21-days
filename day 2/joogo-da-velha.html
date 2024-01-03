@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jogo da Velha</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      text-align: center;
+    }
+
+    #board {
+      display: grid;
+      grid-template-columns: repeat(3, 100px);
+      grid-gap: 5px;
+      margin: 20px auto;
+    }
+
+    .cell {
+      width: 100px;
+      height: 100px;
+      border: 2px solid #333;
+      font-size: 2em;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  </style>
+</head>
+<body>
+
+<h1>Jogo da Velha</h1>
+
+<div id="board"></div>
+
+<script>
+  const board = document.getElementById('board');
+  let currentPlayer = 'X';
+  let gameBoard = Array(9).fill('');
+  let gameOver = false;
+
+  function checkWinner() {
+    const winningCombinations = [
+      [0, 1, 2], [3, 4, 5], [6, 7, 8],
+      [0, 3, 6], [1, 4, 7], [2, 5, 8],
+      [0, 4, 8], [2, 4, 6]
+    ];
+
+    for (const combo of winningCombinations) {
+      const [a, b, c] = combo;
+      if (gameBoard[a] && gameBoard[a] === gameBoard[b] && gameBoard[a] === gameBoard[c]) {
+        return gameBoard[a];
+      }
+    }
+
+    return gameBoard.every(cell => cell !== '') ? 'T' : null;
+  }
+
+  function render() {
+    board.innerHTML = gameBoard.map((value, index) =>
+      `<div class="cell" onclick="handleCellClick(${index})">${value}</div>`
+    ).join('');
+  }
+
+  function handleCellClick(index) {
+    if (gameOver || gameBoard[index] !== '') return;
+
+    gameBoard[index] = currentPlayer;
+    render();
+
+    const winner = checkWinner();
+    if (winner) handleGameEnd(winner);
+    else currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
+  }
+
+  function handleGameEnd(winner) {
+    gameOver = true;
+    const message = winner === 'T' ? 'Empate!' : `O jogador ${winner} venceu!`;
+    alert(message);
+  }
+
+  render();
+</script>
+
+</body>
+</html>
