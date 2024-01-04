@@ -5,4 +5,5 @@ let tipobool = true;
 let nome = "Alan Juchenski";
 
 let Idade = prompt();
-console.log(2023 - Idade);
+let idade = parseInt(idade)
+console.log(Idade);
