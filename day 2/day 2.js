@@ -1,20 +1,10 @@
-let tipotexto = "2";
-let tiponumber = 2;
-let tipoboolTexto = "true";
-let tipobool = true;
-let nome = "Alan Juchenski";
+nome = prompt ("Qual seu nome?")
+idade = parseInt(prompt("Qual a sua idade?"))
+peso = parseFloat(prompt("Qual seu peso?"))
+altura = parseFloat(prompt("Qual sua altura"))
 
-let Nome = prompt("Nome")
-let Idade = parseInt(prompt("Idade"))
-let Altura = parseInt(prompt("Altura"))
-let Peso = parseInt(prompt("Peso"))
+anoNasc =  2023 - idade
+imc = peso / (altura*altura)
+imc = Number(imc.toFixed(2));
 
-console.log ("Olá,")
-
-console.log(2023 - Idade)
-console.log(Peso / Altura)
-
-
-
-let idadeemInt = parseInt(Idade)
-console.log(idadeemInt)
+console.log ("olá " + nome + ", voce tem " + idade + " anos, nasceu em " + anoNasc + " , tem " + altura + " de altura, pesa " + peso + "Kg seu imc é " + imc + "Kg/m.") 
