@@ -1,19 +1,18 @@
-let n1 = parseInt(prompt ("Primeiro número:"))
-let n2 = parseInt(prompt ("Segundo número? "))
-let conta = parseInt(prompt("Qual tipo de operacao matematica voce deseja realizar?" + "\n1 = +; \n2 = -; \n3 = *; \n4 = /" ))
+let num1 = parseInt(prompt("First number:"));
+let num2 = parseInt(prompt("Second number:"));
+let operation = parseInt(prompt("Which mathematical operation do you want to perform?" + "\n1 = +; \n2 = -; \n3 = *; \n4 = /"));
 
-
-switch(conta){
+switch (operation) {
     case 1:
-        console.log(n1 + " + " + n2 + " = " + (n1 + n2))
+        console.log(num1 + " + " + num2 + " = " + (num1 + num2));
         break;
     case 2:
-        console.log(n1 + "-" + n2 + "=" + (n1 - n2))
-        break;     
-    case 3:
-        console.log(n1 + "*" + n2 + "=" + (n1 * n2))
+        console.log(num1 + " - " + num2 + " = " + (num1 - num2));
         break;
-    default: 
-        console.log(n1 + "/" + n2 + "=" + (n1 / n2) )
+    case 3:
+        console.log(num1 + " * " + num2 + " = " + (num1 * num2));
+        break;
+    default:
+        console.log(num1 + " / " + num2 + " = " + (num1 / num2));
         break;
 }
