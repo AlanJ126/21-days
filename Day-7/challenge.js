@@ -16,7 +16,7 @@ while(contador <= 10){
         qthomens ++
     }
 
-    if ( sexo == "m" && nota > 7){
+    if ( sexo == "f" && nota > 7){
         quantmulhersacimad7 ++
     }
 mediageral += nota
